@@ -73,5 +73,4 @@ class ChusoSpider(scrapy.Spider):
         items = response.meta['items']
         items['fan_num'] = int(response.xpath('//div[@class="zb_attention"]/div[@class="zb_attention_left"]/@data-subscribercount').extract_first())# 获取主播订阅数量
         items['crawl_time'] = time.strftime('%Y-%m-%d %X', time.localtime())  # 记录爬取时间
-        print(items['channel'], items['fan_num'], items['crawl_time'])
         yield items  # 输出items
