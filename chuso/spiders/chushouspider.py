@@ -71,6 +71,6 @@ class ChusoSpider(scrapy.Spider):
 
     def room_parse2(self, response):
         items = response.meta['items']
-        items['fan_num'] = int(response.xpath('//div[@class="zb_attention"]/div[@class="zb_attention_left"]/@data-subscribercount').extract_first())# 获取主播订阅数量
+        items['fan_num'] = int(response.xpath('//div[@class="zb_attention_left"]/@data-subscribercount').extract_first())# 获取主播订阅数量
         items['crawl_time'] = time.strftime('%Y-%m-%d %X', time.localtime())  # 记录爬取时间
         yield items  # 输出items
